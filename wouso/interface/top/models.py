@@ -109,7 +109,7 @@ class TopUser(ObjectHistory, Player):
         """
         if self._history is not None:
             return self._history
-
+        print History.objects.filter(user=self, relative_to=None).order_by('-date')
         self._history = list(History.objects.filter(user=self, relative_to=None).order_by('-date')[:7])
         return self._history
 
